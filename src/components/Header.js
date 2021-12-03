@@ -1,8 +1,10 @@
+import s from "./Header.module.css";
+
 const Header = () => {
   return (
-    <header className="header">
+    <header className={s.header}>
       <img
-        className="header__logo"
+        className={s.header__logo}
         src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Steam_Logo.png"
         alt="logo"
       />
