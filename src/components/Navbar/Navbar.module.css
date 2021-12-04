@@ -1,8 +1,22 @@
 .nav {
   grid-area: nav;
   background-color: tomato;
+  padding: 20px;
 }
 
 .item {
   color: white;
+  text-decoration: none;
 }
+
+.item:hover {
+  text-decoration: underline;
+}
+
+.active {
+  color: black;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+
