@@ -1,0 +1,14 @@
+.postsBlock {
+  padding: 10px;
+}
+
+.posts {
+  margin-top: 10px;
+}
+
+.posts__Btn {
+  padding: 10px;
+  border: 1px solid black;
+  background-color: white;
+  cursor: pointer;
+}
