@@ -19,7 +19,14 @@ a {
 
 .dialog {
   color: white;
-  cursor: pointer;
+  /* cursor: pointer; */
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.dialog:last-child {
+  margin-bottom: 0;
 }
 
 .dialog:hover {
@@ -31,4 +38,11 @@ a {
 }
 
 .message {
+  text-align: right;
+}
+
+.avatar {
+  width: 65px;
+  border-radius: 50%;
+  margin-right: 15px;
 }
