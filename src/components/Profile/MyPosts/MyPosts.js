@@ -1,3 +1,5 @@
+import React from 'react';
+
 import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
@@ -6,15 +8,22 @@ const MyPosts = (props) => {
     <Post message={post.post} likeCount={post.likesCount} />
   ));
 
+  const newPostElement = React.createRef();
+
+  const addPost = () => {
+    const text = newPostElement.current.value;
+    alert(text);
+  };
+
   return (
     <div className={s.postsBlock}>
       <h3>My posts</h3>
       <div>
         <div>
-          <textarea></textarea>
+          <textarea ref={newPostElement}></textarea>
         </div>
         <div>
-          <button className={s.posts__Btn}>Add Post</button>
+          <button onClick={addPost} className={s.posts__Btn}>Add Post</button>
         </div>
       </div>
       <div className={s.posts}>{postsElements}</div>

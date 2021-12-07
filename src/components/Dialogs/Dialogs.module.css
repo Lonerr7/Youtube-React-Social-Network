@@ -35,10 +35,13 @@ a {
 
 .messages {
   padding: 10px;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; */
 }
 
 .message {
-  text-align: right;
+  /* text-align: center; */
 }
 
 .avatar {
