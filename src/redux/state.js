@@ -1,8 +1,8 @@
 const state = {
   profilePage: {
     posts: [
-      { id: 1, post: "Hi, how are u?", likesCount: 20 },
-      { id: 2, post: "It's my first post", likesCount: 15 },
+      { id: 1, message: "Hi, how are u?", likesCount: 20 },
+      { id: 2, message: "It's my first post", likesCount: 15 },
     ],
   },
 
@@ -28,6 +28,16 @@ const state = {
       { id: 3, name: "Dima", avatar: "https://www.nicepng.com/png/detail/186-1866063_dicks-out-for-harambe-sample-avatar.png" },
     ],
   },
+};
+
+export const addPost = (postMessage) => {
+  const newPost = {
+    id: 5,
+    message: postMessage,
+    likesCount: 0,
+  };
+
+  state.profilePage.posts.push(newPost);
 };
 
 export default state;
