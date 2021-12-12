@@ -35,17 +35,40 @@ a {
 
 .messages {
   padding: 10px;
-  /* display: flex;
+  display: flex;
   flex-direction: column;
-  justify-content: space-evenly; */
+  justify-content: space-between;
 }
 
-.message {
-  /* text-align: center; */
-}
+/* .message {
+} */
 
 .avatar {
   width: 65px;
   border-radius: 50%;
   margin-right: 15px;
+}
+
+.send_message {
+  display: flex;
+  align-items: center;
+  justify-self: flex-end;
+}
+
+.textarea {
+  resize: none;
+  padding: 10px;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.send_button {
+  margin-left: 15px;
+  border: none;
+  align-self: flex-end;
+  cursor: pointer;
+  height: 100%;
+  display: inline-block;
 }

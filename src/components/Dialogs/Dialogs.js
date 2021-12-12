@@ -1,9 +1,13 @@
-import React from 'react';
+import React from "react";
 
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 
 import s from "./Dialogs.module.css";
+import {
+  sendMessageCreator,
+  updateNewMessageBodyCreator,
+} from "../../redux/state";
 
 const Dialogs = (props) => {
   const dialogsElements = props.dialogsPage.dialogs.map((d) => (
@@ -14,25 +18,35 @@ const Dialogs = (props) => {
     <Message message={m.message} />
   ));
 
-  const newMessageElement = React.createRef();
+  // const newMessageRef = React.createRef();
 
-  const addMessage = () => {
-    props.dispatch({type: 'ADD-MESSAGE'});
+  const onSendMessageClick = () => {
+    props.dispatch(sendMessageCreator());
   };
- 
-  const onMessageChange = () => {
-    const text = newMessageElement.current.value;
-    const action = {type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text};
-    props.dispatch(action);
+
+  const onNewMessageChange = (e) => {
+    // const text = newMessageRef.current.value;
+    const text = e.target.value;
+    props.dispatch(updateNewMessageBodyCreator(text));
   };
 
   return (
     <div className={s.dialogs}>
       <div className={s.dialogsItems}>{dialogsElements}</div>
-      <div className={s.messages}>{messagesElements}</div>
-      <div>
-        <textarea onChange={onMessageChange} ref={newMessageElement} value={props.dialogsPage.newMessage} />
-        <button onClick={addMessage}>Send message</button>
+      <div className={s.messages}>
+        <div className={s.messages_elements}>{messagesElements}</div>
+        <div className={s.send_message}>
+          <textarea
+            className={s.textarea}
+            onChange={onNewMessageChange}
+            // ref={newMessageRef}
+            value={props.dialogsPage.newMessageBody}
+            placeholder="Enter your message"
+          />
+          <button className={s.send_button} onClick={onSendMessageClick}>
+            Send message
+          </button>
+        </div>
       </div>
     </div>
   );
