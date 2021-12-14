@@ -2,7 +2,6 @@ import s from './../Navbar.module.css';
 import Friend from './Friend/Friend';
 
 const Friends = (props) => {
-  // debugger;
   const friendsElements = props.state.map(f => <Friend name={f.name} src={f.avatar} id={f.id} />);
 
   return (
@@ -12,7 +11,7 @@ const Friends = (props) => {
       {friendsElements}
       </div>
     </div>
-  )
+  );
 };
 
 export default Friends;
