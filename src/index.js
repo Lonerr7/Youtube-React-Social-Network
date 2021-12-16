@@ -11,23 +11,13 @@ import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
 
-
-const rerenderEntireTree = (state) => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <Provider store={store}>
-        <App state={state} />
-      </Provider>
-    </React.StrictMode>,
-    document.getElementById("root")
-  );
-};
-
-rerenderEntireTree(store.getState());
-
-store.subscribe(() => {
-  const state = store.getState();
-  rerenderEntireTree(state);
-});
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App state={store.getState()} />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById("root")
+);
 
 reportWebVitals();
