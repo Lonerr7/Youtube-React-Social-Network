@@ -15,14 +15,14 @@ const App = (props) => {
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
-        <Navbar state={props.state.sidebar} />
+        <Navbar state={props.state} />
         <div className="app-wrapper__content">
           <Routes>
             <Route
               path="/profile/*"
               element={
                 <Profile
-                  store={props.store}
+                  // store={props.store}
                 />
               }
             />
@@ -30,7 +30,7 @@ const App = (props) => {
               path="/dialogs/*"
               element={
                 <DialogsContainer
-                  store={props.store}
+                  // store={props.store}
                   // dialogsPage={props.state.dialogsPage}
                   // dispatch={props.dispatch}
                 />
