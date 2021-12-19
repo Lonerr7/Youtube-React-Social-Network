@@ -12,11 +12,9 @@ import App from "./App";
 import { Provider } from "react-redux";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App state={store.getState()} />
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <App state={store.getState()} />
+  </Provider>,
   document.getElementById("root")
 );
 

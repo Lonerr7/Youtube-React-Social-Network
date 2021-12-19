@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-// import StoreContext from "../../StoreContext";
+
 import Friends from "./Friends/Friends";
 import s from "./Navbar.module.css";
 
@@ -21,6 +21,14 @@ const Navbar = (props) => {
           className={(navData) => (navData.isActive ? s.active : s.item)}
         >
           Messages
+        </NavLink>
+      </div>
+      <div className={s.item}>
+        <NavLink
+          to="/users"
+          className={(navData) => (navData.isActive ? s.active : s.item)}
+        >
+          Users
         </NavLink>
       </div>
       <div className={s.item}>
