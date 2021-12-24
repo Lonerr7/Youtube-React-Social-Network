@@ -4,4 +4,25 @@
 
 .descriptionBlock {
   padding: 10px;
+  width: 30%;
+}
+
+/* .jobContainer {
+  
+} */
+
+.fullName {
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.jobStatusContainer, .jobDescriptionContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jobStatusImg {
+  background-color: transparent;
+  width: 60px;
 }

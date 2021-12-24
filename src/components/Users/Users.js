@@ -1,5 +1,6 @@
 import s from "./Users.module.css";
 import userPhoto from "./../../images/avatar.jpg";
+import { NavLink } from "react-router-dom";
 
 const Users = (props) => {
   const pages = [];
@@ -32,11 +33,13 @@ const Users = (props) => {
         return (
           <div className="item" key={u.id}>
             <div className="avatar_btn_container">
-              <img
-                className={s.avatar}
-                src={u.photos.small != null ? u.photos.small : userPhoto}
-                alt=""
-              />
+              <NavLink to={`/profile/${u.id}`}>
+                <img
+                  className={s.avatar}
+                  src={u.photos.small != null ? u.photos.small : userPhoto}
+                  alt=""
+                />
+              </NavLink>
               <div className="follow_btn__container">
                 {u.isFollowed ? (
                   <button
