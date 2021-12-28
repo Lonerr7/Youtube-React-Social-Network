@@ -15,15 +15,20 @@ import Preloader from "../common/Preloader/Preloader";
 class usersContainer extends React.Component {
   componentDidMount() {
     this.props.toggleIsFetching(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageLength}`
-      )
-      .then((response) => {
-        this.props.toggleIsFetching(false);
-        this.props.setUsers(response.data.items);
-        this.props.setTotalUsersCount(response.data.totalCount);
-      });
+    if (this.props.users.length === 0) {
+      axios
+        .get(
+          `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageLength}`,
+          {
+            withCredentials: true,
+          }
+        )
+        .then((response) => {
+          this.props.toggleIsFetching(false);
+          this.props.setUsers(response.data.items);
+          this.props.setTotalUsersCount(response.data.totalCount);
+        });
+    }
   }
 
   onChangePage = (page) => {
@@ -32,7 +37,10 @@ class usersContainer extends React.Component {
 
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageLength}`
+        `https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageLength}`,
+        {
+          withCredentials: true,
+        }
       )
       .then((response) => {
         this.props.toggleIsFetching(false);
@@ -92,7 +100,12 @@ const mapStateToProps = (state) => {
 // };
 
 const dispatchToProps = {
-  follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching
+  follow,
+  unfollow,
+  setUsers,
+  setCurrentPage,
+  setTotalUsersCount,
+  toggleIsFetching,
 };
 
 export default connect(mapStateToProps, dispatchToProps)(usersContainer);

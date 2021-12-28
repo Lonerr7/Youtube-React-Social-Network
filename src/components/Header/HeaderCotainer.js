@@ -14,14 +14,7 @@ const HeaderContainer = (props) => {
         if (response.data.resultCode === 0) {
           const { id, login, email } = response.data.data;
           props.setAuthLogin(id, login, email);
-
-          return axios.get(
-            `https://social-network.samuraijs.com/api/1.0/profile/${id}`
-          );
         }
-      })
-      .then((response) => {
-        console.log(response);
       });
   }, []);
 

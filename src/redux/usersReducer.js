@@ -8,7 +8,7 @@ const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const initialState = {
   users: [],
   currentPage: 1,
-  pageLength: 10,
+  pageLength: 5,
   totalUsersCount: 49,
   isFetching: false,
 };
@@ -22,7 +22,7 @@ const usersReducer = (state = initialState, action) => {
           if (u.id === action.userId) {
             return {
               ...u,
-              isFollowed: true,
+              followed: true,
             };
           }
           return u;
@@ -35,7 +35,7 @@ const usersReducer = (state = initialState, action) => {
           if (u.id === action.userId) {
             return {
               ...u,
-              isFollowed: false,
+              followed: false,
             };
           }
           return u;

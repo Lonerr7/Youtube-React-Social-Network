@@ -7,6 +7,7 @@ import { useMatch } from "react-router-dom";
 
 const ProfileContainer = (props) => {
   const match = useMatch("/profile/:userId");
+  console.log(match);
   let userId = match ? match.params.userId : "2";
 
   useEffect(() => {
