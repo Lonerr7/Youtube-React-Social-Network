@@ -1,7 +1,6 @@
 import s from "./Users.module.css";
 import userPhoto from "./../../images/avatar.jpg";
 import { NavLink } from "react-router-dom";
-import * as axios from "axios";
 import { usersAPI } from "../../api/api";
 
 const Users = (props) => {
@@ -11,8 +10,6 @@ const Users = (props) => {
   for (let i = 1; i <= totalPages; i++) {
     pages.push(i);
   }
-
-  console.log(props.users);
 
   return (
     <div>
@@ -41,17 +38,20 @@ const Users = (props) => {
                 <img
                   className={s.avatar}
                   src={u.photos.small != null ? u.photos.small : userPhoto}
-                  alt=""
+                  alt="avatar"
                 />
               </NavLink>
               <div className="follow_btn__container">
                 {u.followed ? (
                   <button
+                    disabled={props.followingInProgress.includes(u.id)}
                     onClick={() => {
+                      props.toggleFollowingProgress(true, u.id);
                       usersAPI.unfollowUser(u.id).then((data) => {
                         if (data.resultCode === 0) {
                           props.unfollow(u.id);
                         }
+                        props.toggleFollowingProgress(false, u.id);
                       });
                     }}
                     className={s.followBtn}
@@ -60,11 +60,14 @@ const Users = (props) => {
                   </button>
                 ) : (
                   <button
+                    disabled={props.followingInProgress.includes(u.id)}
                     onClick={() => {
+                      props.toggleFollowingProgress(true, u.id);
                       usersAPI.followUser(u.id).then((data) => {
                         if (data.resultCode === 0) {
                           props.follow(u.id);
                         }
+                        props.toggleFollowingProgress(false, u.id);
                       });
                     }}
                     className={s.followBtn}

@@ -32,7 +32,6 @@ const Dialogs = (props) => {
           <textarea
             className={s.textarea}
             onChange={onNewMessageChange}
-            // ref={newMessageRef}
             value={props.dialogsPage.newMessageBody}
             placeholder="Enter your message"
           />
