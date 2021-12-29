@@ -14,4 +14,20 @@ export const usersAPI = {
       .get(`users?page=${currentPage}&count=${pageLength}`)
       .then((response) => response.data);
   },
+
+  followUser(id) {
+    return axiosInstance.post(`follow/${id}`).then((response) => response.data);
+  },
+
+  unfollowUser(id) {
+    return axiosInstance
+      .delete(`follow/${id}`)
+      .then((response) => response.data);
+  },
+};
+
+export const authApi = {
+  authMe() {
+    return axiosInstance.get(`auth/me`).then((response) => response.data);
+  },
 };
