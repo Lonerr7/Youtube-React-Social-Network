@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import Header from "./Header";
-import * as axios from "axios";
 import { connect } from "react-redux";
 import { setAuthLogin } from "../../redux/authReducer";
 import { authApi } from "../../api/api";

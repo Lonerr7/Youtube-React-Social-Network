@@ -1,7 +1,6 @@
 import s from "./Users.module.css";
 import userPhoto from "./../../images/avatar.jpg";
 import { NavLink } from "react-router-dom";
-import { usersAPI } from "../../api/api";
 
 const Users = (props) => {
   const pages = [];
@@ -46,13 +45,7 @@ const Users = (props) => {
                   <button
                     disabled={props.followingInProgress.includes(u.id)}
                     onClick={() => {
-                      props.toggleFollowingProgress(true, u.id);
-                      usersAPI.unfollowUser(u.id).then((data) => {
-                        if (data.resultCode === 0) {
-                          props.unfollow(u.id);
-                        }
-                        props.toggleFollowingProgress(false, u.id);
-                      });
+                      props.unfollowThunk(u.id);
                     }}
                     className={s.followBtn}
                   >
@@ -62,13 +55,7 @@ const Users = (props) => {
                   <button
                     disabled={props.followingInProgress.includes(u.id)}
                     onClick={() => {
-                      props.toggleFollowingProgress(true, u.id);
-                      usersAPI.followUser(u.id).then((data) => {
-                        if (data.resultCode === 0) {
-                          props.follow(u.id);
-                        }
-                        props.toggleFollowingProgress(false, u.id);
-                      });
+                      props.followThunk(u.id);
                     }}
                     className={s.followBtn}
                   >
