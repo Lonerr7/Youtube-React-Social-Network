@@ -15,13 +15,21 @@ export const usersAPI = {
       .then((response) => response.data);
   },
 
-  followUser(id) {
-    return axiosInstance.post(`follow/${id}`).then((response) => response.data);
+  followUser(userId) {
+    return axiosInstance
+      .post(`follow/${userId}`)
+      .then((response) => response.data);
   },
 
-  unfollowUser(id) {
+  unfollowUser(userId) {
     return axiosInstance
-      .delete(`follow/${id}`)
+      .delete(`follow/${userId}`)
+      .then((response) => response.data);
+  },
+
+  getCurrentUser(userId) {
+    return axiosInstance
+      .get(`profile/${userId}`)
       .then((response) => response.data);
   },
 };
