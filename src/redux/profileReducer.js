@@ -53,7 +53,7 @@ export const setUserProfile = (userProfile) => ({
   userProfile,
 });
 
-export const getUserThunk = (userId) => {
+export const getCurrerntUserThunk = (userId) => {
   return (disptach) => {
     usersAPI.getCurrentUser(userId).then((data) => {
       disptach(setUserProfile(data));

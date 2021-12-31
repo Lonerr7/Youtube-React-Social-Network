@@ -43,7 +43,13 @@ const ProfileInfo = (props) => {
               </div>
               <div className={s.jobDescriptionContainer}>
                 <p className="jobDescription">Job description:</p>
-                {props.userProfile.lookingForAJobDescription ? <p className="jobDescriptionText">{props.userProfile.lookingForAJobDescription}</p> : <p className="jobDescriptionText">No job description</p>}
+                {props.userProfile.lookingForAJobDescription ? (
+                  <p className="jobDescriptionText">
+                    {props.userProfile.lookingForAJobDescription}
+                  </p>
+                ) : (
+                  <p className="jobDescriptionText">No job description</p>
+                )}
               </div>
             </div>
           </div>

@@ -14,7 +14,7 @@ const Header = (props) => {
          <p className={s.userName}>{props.login}</p>
         ) : (
           <NavLink className={s.loginLink} to="/login">
-            Login
+            LogIn
           </NavLink>
         )}
       </div>
