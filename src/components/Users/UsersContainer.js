@@ -9,8 +9,9 @@ import {
 } from "../../redux/usersReducer";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
+import withAuthRedirect from "../../hoc/withAuthRedirect";
 
-class usersContainer extends React.Component {
+class UsersContainer extends React.Component {
   componentDidMount() {
     if (this.props.users.length === 0) {
       this.props.getUsers(this.props.currrentPage, this.props.pageLength);
@@ -41,6 +42,8 @@ class usersContainer extends React.Component {
   }
 }
 
+const UsersContainerRedirect = withAuthRedirect(UsersContainer);
+
 const mapStateToProps = (state) => {
   return {
     users: state.usersPage.users,
@@ -60,4 +63,4 @@ const dispatchToProps = {
   // setCurrentPage
 };
 
-export default connect(mapStateToProps, dispatchToProps)(usersContainer);
+export default connect(mapStateToProps, dispatchToProps)(UsersContainerRedirect);

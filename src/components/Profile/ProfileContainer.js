@@ -5,7 +5,8 @@ import {
   setUserProfile,
   getCurrerntUserThunk,
 } from "../../redux/profileReducer";
-import { Navigate, useMatch } from "react-router-dom";
+import { useMatch } from "react-router-dom";
+import withAuthRedirect from "../../hoc/withAuthRedirect";
 
 const ProfileContainer = (props) => {
   const match = useMatch("/profile/:userId");
@@ -15,18 +16,17 @@ const ProfileContainer = (props) => {
     props.getCurrerntUserThunk(userId);
   }, [userId]);
 
-  if (!props.isAuth) return <Navigate to="/login" />;
-
   return <Profile {...props} />;
 };
+
+const ProfileContainerRedirect = withAuthRedirect(ProfileContainer);
 
 const mapStateToProps = (state) => {
   return {
     userProfile: state.profilePage.userProfile,
-    isAuth: state.auth.isAuth,
   };
 };
 
 const dispatchToProps = { setUserProfile, getCurrerntUserThunk };
 
-export default connect(mapStateToProps, dispatchToProps)(ProfileContainer);
+export default connect(mapStateToProps, dispatchToProps)(ProfileContainerRedirect);
