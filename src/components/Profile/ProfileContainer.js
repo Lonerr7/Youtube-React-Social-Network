@@ -6,7 +6,7 @@ import {
   getCurrerntUserThunk,
 } from "../../redux/profileReducer";
 import { useMatch } from "react-router-dom";
-import withAuthRedirect from "../../hoc/withAuthRedirect";
+// import withAuthRedirect from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
 
 const ProfileContainer = (props) => {
@@ -30,5 +30,5 @@ const dispatchToProps = { setUserProfile, getCurrerntUserThunk };
 
 export default compose(
   connect(mapStateToProps, dispatchToProps),
-  withAuthRedirect
+  // withAuthRedirect
 )(ProfileContainer);
