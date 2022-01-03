@@ -1,8 +1,8 @@
-import Preloader from "../../common/Preloader/Preloader";
-import s from "./ProfileInfo.module.css";
+import Preloader from '../../common/Preloader/Preloader';
+import s from './ProfileInfo.module.css';
 
-import userPhoto from "../../../images/avatar.jpg";
-import ProfileStatus from "./ProfileStatus/ProfileStatus";
+import userPhoto from '../../../images/avatar.jpg';
+import ProfileStatus from './ProfileStatus/ProfileStatus';
 
 const ProfileInfo = (props) => {
   return (
@@ -30,7 +30,7 @@ const ProfileInfo = (props) => {
                 />
               )}
             </div>
-            <ProfileStatus {...props} status='Hello World' />
+            <ProfileStatus {...props} />
           </div>
         )}
       </div>

@@ -1,23 +1,31 @@
-import React from "react";
+import React from 'react';
 
-import s from "../ProfileInfo.module.css";
-import tick from "../../../../images/tick.png";
-import cross from "../../../../images/cross.png";
+import s from '../ProfileInfo.module.css';
+import tick from '../../../../images/tick.png';
+import cross from '../../../../images/cross.png';
 
 class ProfileStatus extends React.Component {
   state = {
     editMode: false,
+    status: this.props.currentStatus,
   };
 
   activateEditMode = () => {
     this.setState({
       editMode: true,
-    })
-  }
+    });
+  };
 
   deactivateEditMode = () => {
     this.setState({
       editMode: false,
+    });
+    this.props.updateCurrentStatus(this.state.status);
+  };
+
+  onStatusChange = (e) => {
+    this.setState({
+      status: e.target.value
     })
   }
 
@@ -27,11 +35,19 @@ class ProfileStatus extends React.Component {
         <div>
           {this.state.editMode ? (
             <div>
-              <input onBlur={this.deactivateEditMode} autoFocus={true} type="text" value={this.props.status} />
+              <input
+              onChange={this.onStatusChange}
+                onBlur={this.deactivateEditMode}
+                autoFocus={true}
+                type="text"
+                value={this.state.status}
+              />
             </div>
           ) : (
             <div>
-              <span onDoubleClick={this.activateEditMode}>{this.props.status}</span>
+              <span onDoubleClick={this.activateEditMode}>
+                {this.props.currentStatus ? this.props.currentStatus : '------'}
+              </span>
             </div>
           )}
         </div>
