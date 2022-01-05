@@ -21,3 +21,14 @@
 .loginLink {
   font-weight: bold;
 }
+
+.loginInfoBox {
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoutBtn {
+  cursor: pointer;
+}

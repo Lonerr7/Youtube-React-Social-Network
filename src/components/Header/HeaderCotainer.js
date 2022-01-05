@@ -1,14 +1,18 @@
 import { useEffect } from "react";
 import Header from "./Header";
 import { connect } from "react-redux";
-import { authorize } from "../../redux/authReducer";
+import { getAuthUserData, logout } from "../../redux/authReducer";
 
 const HeaderContainer = (props) => {
   useEffect(() => {
-    props.authorize();
+    props.getAuthUserData();
   }, []);
 
-  return <Header {...props} />;
+  const onLogOut = () => {
+    props.logout();
+  }
+
+  return <Header {...props} onLogOut={onLogOut} />;
 };
 
 const mapStateToProps = (state) => {
@@ -18,6 +22,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const dispatchToProps = { authorize };
+const dispatchToProps = { getAuthUserData, logout };
 
 export default connect(mapStateToProps, dispatchToProps)(HeaderContainer);

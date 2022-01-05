@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
-import s from "./Header.module.css";
+import { NavLink } from 'react-router-dom';
+import s from './Header.module.css';
 
 const Header = (props) => {
   return (
@@ -11,7 +11,10 @@ const Header = (props) => {
           alt="logo"
         />
         {props.isAuth ? (
-         <p className={s.userName}>{props.login}</p>
+          <div className={s.loginInfoBox}>
+            <p className={s.userName}>{props.login}</p>
+            <button className={s.logoutBtn} onClick={props.onLogOut} >Log out</button>
+          </div>
         ) : (
           <NavLink className={s.loginLink} to="/login">
             LogIn

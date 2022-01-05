@@ -1,6 +1,6 @@
-import { authApi } from "../api/api";
+import { authApi } from '../api/api';
 
-const SET_USER_LOGIN = "SET_USER_LOGIN";
+const SET_USER_LOGIN = 'SET_USER_LOGIN';
 
 const initialState = {
   id: null,
@@ -15,25 +15,42 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.data,
-        isAuth: true,
       };
     default:
       return state;
   }
 };
 
-export const setAuthLogin = (id, login, email) => ({
+export const setAuthUserData = (id, login, email, isAuth) => ({
   type: SET_USER_LOGIN,
-  data: { id, login, email },
+  data: { id, login, email, isAuth },
 });
 
-export const authorize = () => {
+export const getAuthUserData = () => {
   return (dispatch) => {
     authApi.authMe().then((data) => {
       if (data.resultCode === 0) {
         const { id, login, email } = data.data;
-        dispatch(setAuthLogin(id, login, email));
+        dispatch(setAuthUserData(id, login, email, true));
       }
+    });
+  };
+};
+
+export const login = (formData) => {
+  return (dispatch) => {
+    authApi.login(formData).then((response) => {
+      if (response.data.resultCode === 0) {
+        dispatch(getAuthUserData());
+      }
+    });
+  };
+};
+
+export const logout = () => {
+  return (dispatch) => {
+    authApi.logout().then(() => {
+      dispatch(setAuthUserData(null, null, null, false));
     });
   };
 };

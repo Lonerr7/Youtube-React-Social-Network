@@ -7,11 +7,11 @@ import s from "./Dialogs.module.css";
 
 const Dialogs = (props) => {
   const dialogsElements = props.dialogsPage.dialogs.map((d) => (
-    <DialogItem name={d.name} id={d.id} source={d.avatar} />
+    <DialogItem key={d.id} name={d.name} id={d.id} source={d.avatar} />
   ));
 
   const messagesElements = props.dialogsPage.messages.map((m) => (
-    <Message message={m.message} />
+    <Message key={m.id} message={m.message} />
   ));
 
   const onSendMessageClick = () => {
