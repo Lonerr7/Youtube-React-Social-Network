@@ -13,7 +13,7 @@ import { compose } from 'redux';
 
 const ProfileContainer = (props) => {
   const match = useMatch('/profile/:userId');
-  const userId = match ? match.params.userId : '21512';
+  const userId = match ? match.params.userId : props.myId;
 
   useEffect(() => {
     props.getCurrentUserThunk(userId);
@@ -28,6 +28,7 @@ const mapStateToProps = (state) => {
   return {
     userProfile: state.profilePage.userProfile,
     currentStatus: state.profilePage.currentStatus,
+    myId: state.auth.id
   };
 };
 

@@ -37,11 +37,13 @@ export const getAuthUserData = () => {
   };
 };
 
-export const login = (formData) => {
+export const login = (formData, setStatus) => {
   return (dispatch) => {
     authApi.login(formData).then((response) => {
       if (response.data.resultCode === 0) {
         dispatch(getAuthUserData());
+      } else {
+        setStatus(response.data.messages);
       }
     });
   };
