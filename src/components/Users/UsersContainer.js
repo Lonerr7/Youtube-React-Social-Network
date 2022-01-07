@@ -1,25 +1,33 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 import {
   followThunk,
   unfollowThunk,
   toggleFollowingProgress,
-  getUsers,
+  requestUsers,
   // setCurrentPage
-} from "../../redux/usersReducer";
-import Users from "./Users";
-import Preloader from "../common/Preloader/Preloader";
-import { compose } from "redux";
+} from '../../redux/usersReducer';
+import Users from './Users';
+import Preloader from '../common/Preloader/Preloader';
+import { compose } from 'redux';
+import {
+  getUsers,
+  getPageLength,
+  getCurrentPage,
+  getTotalUsersCount,
+  getIsFetching,
+  getFollowingInProgress,
+} from '../../redux/usersSelectors';
 
 class UsersContainer extends React.Component {
   componentDidMount() {
     if (this.props.users.length === 0) {
-      this.props.getUsers(this.props.currrentPage, this.props.pageLength);
+      this.props.requestUsers(this.props.currrentPage, this.props.pageLength);
     }
   }
 
   onChangePage = (page) => {
-    this.props.getUsers(page, this.props.pageLength);
+    this.props.requestUsers(page, this.props.pageLength);
   };
 
   render() {
@@ -42,14 +50,25 @@ class UsersContainer extends React.Component {
   }
 }
 
+// const mapStateToProps = (state) => {
+//   return {
+//     users: state.usersPage.users,
+//     currentPage: state.usersPage.currentPage,
+//     pageLength: state.usersPage.pageLength,
+//     totalUsersCount: state.usersPage.totalUsersCount,
+//     isFetching: state.usersPage.isFetching,
+//     followingInProgress: state.usersPage.followingInProgress,
+//   };
+// };
+
 const mapStateToProps = (state) => {
   return {
-    users: state.usersPage.users,
-    currentPage: state.usersPage.currentPage,
-    pageLength: state.usersPage.pageLength,
-    totalUsersCount: state.usersPage.totalUsersCount,
-    isFetching: state.usersPage.isFetching,
-    followingInProgress: state.usersPage.followingInProgress,
+    users: getUsers(state),
+    pageLength: getPageLength(state),
+    currentPage: getCurrentPage(state),
+    totalUsersCount: getTotalUsersCount(state),
+    isFetching: getIsFetching(state),
+    followingInProgress: getFollowingInProgress(state),
   };
 };
 
@@ -57,11 +76,11 @@ const dispatchToProps = {
   followThunk,
   unfollowThunk,
   toggleFollowingProgress,
-  getUsers,
+  requestUsers,
   // setCurrentPage
 };
 
 export default compose(
-  connect(mapStateToProps, dispatchToProps),
+  connect(mapStateToProps, dispatchToProps)
   // withAuthRedirect
 )(UsersContainer);
