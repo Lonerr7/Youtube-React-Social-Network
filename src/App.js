@@ -11,8 +11,18 @@ import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderCotainer';
 import Login from './components/Login/Login';
 import NavbarContainer from './components/Navbar/NavbarContainer';
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { initializeApp } from './redux/appReducer';
+import Preloader from './components/common/Preloader/Preloader';
 
-const App = () => {
+const App = (props) => {
+  useEffect(() => {
+    props.initializeApp();
+  }, []);
+
+  if (!props.initialized) return <Preloader />
+
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -34,4 +44,8 @@ const App = () => {
   );
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  initialized: state.app.initialized
+});
+
+export default connect(mapStateToProps, { initializeApp })(App);

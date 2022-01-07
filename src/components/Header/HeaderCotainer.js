@@ -1,16 +1,11 @@
-import { useEffect } from "react";
-import Header from "./Header";
-import { connect } from "react-redux";
-import { getAuthUserData, logout } from "../../redux/authReducer";
+import Header from './Header';
+import { connect } from 'react-redux';
+import { getAuthUserData, logout } from '../../redux/authReducer';
 
 const HeaderContainer = (props) => {
-  useEffect(() => {
-    props.getAuthUserData();
-  }, []);
-
   const onLogOut = () => {
     props.logout();
-  }
+  };
 
   return <Header {...props} onLogOut={onLogOut} />;
 };

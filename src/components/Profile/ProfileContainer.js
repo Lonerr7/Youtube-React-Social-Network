@@ -28,7 +28,7 @@ const mapStateToProps = (state) => {
   return {
     userProfile: state.profilePage.userProfile,
     currentStatus: state.profilePage.currentStatus,
-    myId: state.auth.id
+    myId: state.auth.id,
   };
 };
 

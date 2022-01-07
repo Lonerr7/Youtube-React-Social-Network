@@ -26,15 +26,13 @@ export const setAuthUserData = (id, login, email, isAuth) => ({
   data: { id, login, email, isAuth },
 });
 
-export const getAuthUserData = () => {
-  return (dispatch) => {
-    authApi.authMe().then((data) => {
-      if (data.resultCode === 0) {
-        const { id, login, email } = data.data;
-        dispatch(setAuthUserData(id, login, email, true));
-      }
-    });
-  };
+export const getAuthUserData = () => (dispatch) => {
+  return authApi.authMe().then((data) => {
+    if (data.resultCode === 0) {
+      const { id, login, email } = data.data;
+      dispatch(setAuthUserData(id, login, email, true));
+    }
+  });
 };
 
 export const login = (formData, setStatus) => {
