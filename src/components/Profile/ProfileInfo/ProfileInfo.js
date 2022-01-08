@@ -3,6 +3,7 @@ import s from './ProfileInfo.module.css';
 
 import userPhoto from '../../../images/avatar.jpg';
 import ProfileStatus from './ProfileStatus/ProfileStatus';
+import ProfileStatusWithHooks from './ProfileStatus/ProfileStatusWithHooks';
 
 const ProfileInfo = (props) => {
   return (
@@ -30,7 +31,7 @@ const ProfileInfo = (props) => {
                 />
               )}
             </div>
-            <ProfileStatus {...props} />
+            <ProfileStatusWithHooks {...props} />
           </div>
         )}
       </div>
