@@ -50,10 +50,10 @@ export const authApi = {
   },
 
   login(formData) {
-    return axiosInstance.post(`auth/login`, {...formData});
+    return axiosInstance.post(`auth/login`, { ...formData });
   },
 
   logout() {
     return axiosInstance.delete(`auth/login`);
-  }
+  },
 };

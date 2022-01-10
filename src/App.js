@@ -1,4 +1,4 @@
-import { Route, BrowserRouter, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import './App.css';
 
@@ -21,31 +21,29 @@ const App = (props) => {
     props.initializeApp();
   }, []);
 
-  if (!props.initialized) return <Preloader />
+  if (!props.initialized) return <Preloader />;
 
   return (
-    <BrowserRouter>
-      <div className="app-wrapper">
-        <HeaderContainer />
-        <NavbarContainer />
-        <div className="app-wrapper__content">
-          <Routes>
-            <Route path="/profile/*" element={<ProfileContainer />} />
-            <Route path="/dialogs/*" element={<DialogsContainer />} />
-            <Route path="/users/*" element={<UsersContainer />} />
-            <Route path="/news/*" element={<News />} />
-            <Route path="/music/*" element={<Music />} />
-            <Route path="/settings/*" element={<Settings />} />
-            <Route path="/login/*" element={<Login />} />
-          </Routes>
-        </div>
+    <div className="app-wrapper">
+      <HeaderContainer />
+      <NavbarContainer />
+      <div className="app-wrapper__content">
+        <Routes>
+          <Route path="/profile/*" element={<ProfileContainer />} />
+          <Route path="/dialogs/*" element={<DialogsContainer />} />
+          <Route path="/users/*" element={<UsersContainer />} />
+          <Route path="/news/*" element={<News />} />
+          <Route path="/music/*" element={<Music />} />
+          <Route path="/settings/*" element={<Settings />} />
+          <Route path="/login/*" element={<Login />} />
+        </Routes>
       </div>
-    </BrowserRouter>
+    </div>
   );
 };
 
 const mapStateToProps = (state) => ({
-  initialized: state.app.initialized
+  initialized: state.app.initialized,
 });
 
 export default connect(mapStateToProps, { initializeApp })(App);

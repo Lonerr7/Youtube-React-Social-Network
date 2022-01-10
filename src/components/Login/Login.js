@@ -2,16 +2,15 @@ import { connect } from 'react-redux';
 import LoginForm from './LoginForm';
 import { login } from '../../redux/authReducer';
 import { Navigate } from 'react-router-dom';
-import Preloader from '../common/Preloader/Preloader';
 
-const Login = (props) => {
+const Login = ({login, isAuth}) => {
   const onFormSubmit = (formData, {resetForm, setSubmitting, setStatus}) => {
-    props.login(formData, setStatus);
+    login(formData, setStatus);
     resetForm();
     setSubmitting(false);
   };
 
-  if (props.isAuth) return <Navigate to="/profile" />;
+  if (isAuth) return <Navigate to="/profile" />;
 
   return (
     <div>

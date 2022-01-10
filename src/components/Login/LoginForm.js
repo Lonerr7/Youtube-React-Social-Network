@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import TextError from './TextError/TextError';
 import s from './Login.module.css';
 
-const LoginForm = (props) => {
+const LoginForm = ({onFormSubmit}) => {
   const initialValues = {
     email: '',
     password: '',
@@ -17,7 +17,7 @@ const LoginForm = (props) => {
 
   return (
     <Formik
-      onSubmit={props.onFormSubmit}
+      onSubmit={onFormSubmit}
       initialValues={initialValues}
       validationSchema={validationSchema}
     >
