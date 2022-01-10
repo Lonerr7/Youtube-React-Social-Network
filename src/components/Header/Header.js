@@ -5,15 +5,19 @@ const Header = (props) => {
   return (
     <header className={s.header}>
       <div className={s.container}>
-        <img
-          className={s.header__logo}
-          src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Steam_Logo.png"
-          alt="logo"
-        />
+        <NavLink to='/'>
+          <img
+            className={s.header__logo}
+            src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Steam_Logo.png"
+            alt="logo"
+          />
+        </NavLink>
         {props.isAuth ? (
           <div className={s.loginInfoBox}>
             <p className={s.userName}>{props.login}</p>
-            <button className={s.logoutBtn} onClick={props.onLogOut} >Log out</button>
+            <button className={s.logoutBtn} onClick={props.onLogOut}>
+              Log out
+            </button>
           </div>
         ) : (
           <NavLink className={s.loginLink} to="/login">
