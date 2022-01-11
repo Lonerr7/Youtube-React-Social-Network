@@ -15,3 +15,8 @@
   grid-area: c;
   background-color: grey;
 }
+
+a {
+  color: black;
+  text-decoration: none;
+}
