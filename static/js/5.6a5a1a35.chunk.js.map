@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/Settings/Settings.js"],"names":["Settings"],"mappings":"8IAMeA,UAJE,WACf,OAAO","file":"static/js/5.6a5a1a35.chunk.js","sourcesContent":["\r\n\r\nconst Settings = () => {\r\n  return <div>Settings</div>\r\n};\r\n\r\nexport default Settings;"],"sourceRoot":""}

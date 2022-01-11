@@ -1,0 +1,2 @@
+(this["webpackJsonp01-first-project"]=this["webpackJsonp01-first-project"]||[]).push([[4],{250:function(t,e,s){"use strict";s.r(e);s(1);var c=s(0);e.default=function(){return Object(c.jsx)("div",{children:Object(c.jsx)("div",{children:"News"})})}}}]);
+//# sourceMappingURL=4.cf597fb7.chunk.js.map
