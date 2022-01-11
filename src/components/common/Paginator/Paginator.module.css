@@ -5,3 +5,11 @@
 .currentPage {
   font-weight: bold;
 }
+
+.paginationContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  list-style: none;
+}

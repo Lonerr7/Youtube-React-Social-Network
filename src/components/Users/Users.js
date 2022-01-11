@@ -1,5 +1,7 @@
-import Paginator from '../common/Paginator/Paginator';
+// import Paginator from '../common/Paginator/Paginator';
 import User from './User';
+import Pagination from 'react-js-pagination';
+import s from '../common/Paginator/Paginator.module.css';
 
 const Users = ({
   users,
@@ -13,11 +15,20 @@ const Users = ({
 }) => {
   return (
     <div>
-      <Paginator
+      {/* <Paginator
         totalUsersCount={totalUsersCount}
         pageLength={pageLength}
         currentPage={currentPage}
         onChangePage={onChangePage}
+      /> */}
+      <Pagination
+        pageRangeDisplayed={10}
+        innerClass={s.paginationContainer}
+        activeClass={s.currentPage}
+        itemsCountPerPage={pageLength}
+        totalItemsCount={totalUsersCount}
+        activePage={currentPage}
+        onChange={onChangePage}
       />
       {users.map((u) => {
         return (
