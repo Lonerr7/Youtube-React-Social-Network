@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/Youtube-React-Social-Network/static/css/main.112416f4.chunk.css",
-    "main.js": "/Youtube-React-Social-Network/static/js/main.f226df62.chunk.js",
-    "main.js.map": "/Youtube-React-Social-Network/static/js/main.f226df62.chunk.js.map",
+    "main.js": "/Youtube-React-Social-Network/static/js/main.704da711.chunk.js",
+    "main.js.map": "/Youtube-React-Social-Network/static/js/main.704da711.chunk.js.map",
     "runtime-main.js": "/Youtube-React-Social-Network/static/js/runtime-main.4154506f.js",
     "runtime-main.js.map": "/Youtube-React-Social-Network/static/js/runtime-main.4154506f.js.map",
-    "static/js/2.02c6c169.chunk.js": "/Youtube-React-Social-Network/static/js/2.02c6c169.chunk.js",
-    "static/js/2.02c6c169.chunk.js.map": "/Youtube-React-Social-Network/static/js/2.02c6c169.chunk.js.map",
+    "static/js/2.b84189c7.chunk.js": "/Youtube-React-Social-Network/static/js/2.b84189c7.chunk.js",
+    "static/js/2.b84189c7.chunk.js.map": "/Youtube-React-Social-Network/static/js/2.b84189c7.chunk.js.map",
     "static/js/3.b7df8840.chunk.js": "/Youtube-React-Social-Network/static/js/3.b7df8840.chunk.js",
     "static/js/3.b7df8840.chunk.js.map": "/Youtube-React-Social-Network/static/js/3.b7df8840.chunk.js.map",
     "static/js/4.cf597fb7.chunk.js": "/Youtube-React-Social-Network/static/js/4.cf597fb7.chunk.js",
@@ -17,15 +17,15 @@
     "static/js/6.2990d34f.chunk.js.map": "/Youtube-React-Social-Network/static/js/6.2990d34f.chunk.js.map",
     "index.html": "/Youtube-React-Social-Network/index.html",
     "static/css/main.112416f4.chunk.css.map": "/Youtube-React-Social-Network/static/css/main.112416f4.chunk.css.map",
-    "static/js/2.02c6c169.chunk.js.LICENSE.txt": "/Youtube-React-Social-Network/static/js/2.02c6c169.chunk.js.LICENSE.txt",
+    "static/js/2.b84189c7.chunk.js.LICENSE.txt": "/Youtube-React-Social-Network/static/js/2.b84189c7.chunk.js.LICENSE.txt",
     "static/media/cross.fadca361.png": "/Youtube-React-Social-Network/static/media/cross.fadca361.png",
     "static/media/hug.757857ce.gif": "/Youtube-React-Social-Network/static/media/hug.757857ce.gif",
     "static/media/tick.738637aa.png": "/Youtube-React-Social-Network/static/media/tick.738637aa.png"
   },
   "entrypoints": [
     "static/js/runtime-main.4154506f.js",
-    "static/js/2.02c6c169.chunk.js",
+    "static/js/2.b84189c7.chunk.js",
     "static/css/main.112416f4.chunk.css",
-    "static/js/main.f226df62.chunk.js"
+    "static/js/main.704da711.chunk.js"
   ]
 }
