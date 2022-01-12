@@ -6,6 +6,7 @@ import {
   getCurrentUserThunk,
   getCurrentStatus,
   updateCurrentStatus,
+  uploadProfilePhoto,
 } from '../../redux/profileReducer';
 import { useMatch } from 'react-router-dom';
 // import withAuthRedirect from "../../hoc/withAuthRedirect";
@@ -21,7 +22,7 @@ const ProfileContainer = (props) => {
     props.getCurrentStatus(userId);
   }, [userId]);
 
-  return <Profile {...props} />;
+  return <Profile {...props} isOwner={userId === props.myId} />;
 };
 
 const mapStateToProps = (state) => {
@@ -37,6 +38,7 @@ const dispatchToProps = {
   getCurrentUserThunk,
   getCurrentStatus,
   updateCurrentStatus,
+  uploadProfilePhoto,
 };
 
 export default compose(

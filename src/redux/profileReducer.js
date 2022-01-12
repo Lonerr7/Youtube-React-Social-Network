@@ -5,6 +5,7 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_USER_STATUS = 'SET_USER_STATUS';
 const DELETE_POST = 'DELETE_POST';
+const UPLOAD_PROFILE_PHOTO = 'UPLOAD_PROFILE_PHOTO';
 
 const initialState = {
   posts: [
@@ -58,6 +59,11 @@ const profileReducer = (state = initialState, action) => {
         ...state,
         currentStatus: action.status,
       };
+    case UPLOAD_PROFILE_PHOTO:
+      return {
+        ...state,
+        userProfile: { ...state.userProfile, photos: action.photos },
+      };
     default:
       return state;
   }
@@ -82,6 +88,10 @@ export const setUserStatus = (status) => ({
   type: SET_USER_STATUS,
   status,
 });
+export const uploadProfilePhotoSuccess = (photos) => ({
+  type: UPLOAD_PROFILE_PHOTO,
+  photos,
+});
 
 export const getCurrentUserThunk = (userId) => async (disptach) => {
   const data = await profileAPI.getCurrentProfile(userId);
@@ -95,10 +105,17 @@ export const getCurrentStatus = (userId) => async (dispatch) => {
 
 export const updateCurrentStatus = (status) => async (dispatch) => {
   const response = await profileAPI.updateCurrentStatus(status);
-  
+
   if (response.data.resultCode === 0) {
     dispatch(setUserStatus(status));
   }
+};
+
+export const uploadProfilePhoto = (photo) => async (dispatch) => {
+  const response = await profileAPI.uploadProfilePhoto(photo);
+
+  if (response.data.resultCode === 0)
+    dispatch(uploadProfilePhotoSuccess(response.data.data.photos));
 };
 
 export default profileReducer;

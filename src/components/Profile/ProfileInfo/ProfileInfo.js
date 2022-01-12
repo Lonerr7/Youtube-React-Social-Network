@@ -14,7 +14,7 @@ const ProfileInfo = (props) => {
           <Preloader />
         ) : (
           <div className={s.profileInfoBox}>
-            <ProfileAvatar userProfile={props.userProfile} />
+            <ProfileAvatar userProfile={props.userProfile} isOwner={props.isOwner} uploadProfilePhoto={props.uploadProfilePhoto} />
             <ProfileStatusWithHooks {...props} />
           </div>
         )}
