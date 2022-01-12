@@ -18,6 +18,7 @@ import {
   getIsFetching,
   getFollowingInProgress,
 } from '../../redux/usersSelectors';
+import withAuthRedirect from '../../hoc/withAuthRedirect';
 
 class UsersContainer extends React.Component {
   componentDidMount() {
@@ -82,6 +83,6 @@ const dispatchToProps = {
 };
 
 export default compose(
-  connect(mapStateToProps, dispatchToProps)
-  // withAuthRedirect
+  connect(mapStateToProps, dispatchToProps),
+  withAuthRedirect
 )(UsersContainer);

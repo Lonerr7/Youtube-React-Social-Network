@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import './App.css';
 
@@ -64,11 +64,11 @@ const AppContainer = connect(mapStateToProps, { initializeApp })(App);
 
 const MainApp = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
