@@ -48,6 +48,10 @@ export const profileAPI = {
     formData.append('image', photo);
     return axiosInstance.put(`profile/photo`, formData);
   },
+
+  updateProfileInfo(profileInfo) {
+    return axiosInstance.put(`profile`, profileInfo);
+  },
 };
 
 export const authApi = {

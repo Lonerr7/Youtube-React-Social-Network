@@ -26,3 +26,9 @@
   background-color: transparent;
   width: 60px;
 }
+
+.contactInfo {
+  font-weight: 700;
+  text-align: center;
+  text-decoration: underline;
+}

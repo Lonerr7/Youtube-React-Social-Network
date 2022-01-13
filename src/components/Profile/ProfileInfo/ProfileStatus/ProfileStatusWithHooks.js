@@ -4,7 +4,7 @@ import s from '../ProfileInfo.module.css';
 
 import { useState } from 'react';
 import { useEffect } from 'react';
-import ProfileJobInfo from './ProfileJobInfo/ProfileJobInfo';
+
 
 const ProfileStatusWithHooks = (props) => {
   const [editMode, setEditMode] = useState(false);
@@ -48,9 +48,6 @@ const ProfileStatusWithHooks = (props) => {
           </div>
         )}
       </div>
-
-      <p className={s.fullName}>{props.userProfile.fullName}</p>
-      <ProfileJobInfo userProfile={props.userProfile} />
     </div>
   );
 };

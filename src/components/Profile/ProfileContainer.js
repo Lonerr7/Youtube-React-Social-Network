@@ -7,6 +7,7 @@ import {
   getCurrentStatus,
   updateCurrentStatus,
   uploadProfilePhoto,
+  updateProfileInfo,
 } from '../../redux/profileReducer';
 import { useMatch } from 'react-router-dom';
 // import withAuthRedirect from "../../hoc/withAuthRedirect";
@@ -39,6 +40,7 @@ const dispatchToProps = {
   getCurrentStatus,
   updateCurrentStatus,
   uploadProfilePhoto,
+  updateProfileInfo,
 };
 
 export default compose(

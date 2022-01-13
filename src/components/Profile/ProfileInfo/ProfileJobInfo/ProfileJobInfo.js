@@ -1,12 +1,12 @@
-import tick from '../../../../../images/tick.png';
-import cross from '../../../../../images/cross.png';
-import s from '../../ProfileInfo.module.css';
+import tick from '../../../../images/tick.png';
+import cross from '../../../../images/cross.png';
+import s from '../ProfileInfo.module.css';
 
 const ProfileJobInfo = ({userProfile}) => {
   return (
     <div className={s.jobContainer}>
       <div className={s.jobStatusContainer}>
-        <p className={s.jobStatus}>Looking for a job</p>
+        <p className={s.jobStatus}>Looking for a job:</p>
         {userProfile.lookingForAJob ? (
           <img className={s.jobStatusImg} src={tick} alt="tick" />
         ) : (

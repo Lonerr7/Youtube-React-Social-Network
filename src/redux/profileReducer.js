@@ -6,6 +6,7 @@ const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_USER_STATUS = 'SET_USER_STATUS';
 const DELETE_POST = 'DELETE_POST';
 const UPLOAD_PROFILE_PHOTO = 'UPLOAD_PROFILE_PHOTO';
+const UPDATE_PROFILE_INFO = 'UPDATE_PROFILE_INFO';
 
 const initialState = {
   posts: [
@@ -64,6 +65,11 @@ const profileReducer = (state = initialState, action) => {
         ...state,
         userProfile: { ...state.userProfile, photos: action.photos },
       };
+    case UPDATE_PROFILE_INFO:
+      return {
+        ...state,
+        userProfile: { ...state.userProfile, ...action.profileInfo },
+      };
     default:
       return state;
   }
@@ -92,6 +98,10 @@ export const uploadProfilePhotoSuccess = (photos) => ({
   type: UPLOAD_PROFILE_PHOTO,
   photos,
 });
+export const updateProfileInfoSuccess = (profileInfo) => ({
+  type: UPDATE_PROFILE_INFO,
+  profileInfo,
+});
 
 export const getCurrentUserThunk = (userId) => async (disptach) => {
   const data = await profileAPI.getCurrentProfile(userId);
@@ -117,5 +127,16 @@ export const uploadProfilePhoto = (photo) => async (dispatch) => {
   if (response.data.resultCode === 0)
     dispatch(uploadProfilePhotoSuccess(response.data.data.photos));
 };
+
+export const updateProfileInfo =
+  (profileInfo, setStatus) => async (dispatch) => {
+    const response = await profileAPI.updateProfileInfo(profileInfo);
+
+    if (response.data.resultCode === 0) {
+      dispatch(updateProfileInfoSuccess(profileInfo));
+    } else {
+      setStatus(response.data.messages);
+    }
+  };
 
 export default profileReducer;
