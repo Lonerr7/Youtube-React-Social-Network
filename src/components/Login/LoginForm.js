@@ -3,11 +3,12 @@ import * as yup from 'yup';
 import TextError from './TextError/TextError';
 import s from './Login.module.css';
 
-const LoginForm = ({onFormSubmit}) => {
+const LoginForm = ({ onFormSubmit, captcha }) => {
   const initialValues = {
     email: '',
     password: '',
     rememberMe: false,
+    captcha: '',
   };
 
   const validationSchema = yup.object({
@@ -35,6 +36,22 @@ const LoginForm = ({onFormSubmit}) => {
             <Field type="checkbox" name="rememberMe" />
             <label htmlFor="checkbox">remember me</label>
           </div>
+          {captcha ? (
+            <div>
+              <div>
+                <img src={captcha} alt="captcha" />
+              </div>
+              <div className="form-control">
+                <Field
+                  type="text"
+                  placeholder="captcha"
+                  name="captcha"
+                  id="captcha"
+                />
+                <ErrorMessage name="captcha" component={TextError} />
+              </div>
+            </div>
+          ) : null}
           <button type="submit">Log in</button>
           <p className={s.errorStatus}>{status}</p>
         </Form>
